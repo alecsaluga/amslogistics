@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Angeles Warehousing & Cross-Dock | Alexander's Mobility Services</title>
+    <meta name="description" content="Professional pallet storage, cross-dock, FF&E receiving and final-mile delivery across Greater Los Angeles. Secure commercial warehousing from Alexander's Mobility Services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#003366',
+                        'alexander-red': '#C32026',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="amslogo.png" alt="Alexander's Mobility Services Logo" class="h-12 w-auto">
+                    <div class="text-xs text-gray-600 hidden sm:block">Commercial Warehousing & Cross-Dock – Greater Los Angeles</div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#services" class="text-navy hover:text-alexander-red transition">Services</a>
+                    <a href="#how-it-works" class="text-navy hover:text-alexander-red transition">How It Works</a>
+                    <a href="#industries" class="text-navy hover:text-alexander-red transition">Industries</a>
+                    <a href="#about" class="text-navy hover:text-alexander-red transition">About</a>
+                    <a href="#quote" class="bg-alexander-red text-white px-6 py-2 rounded-full hover:bg-red-700 transition">Get a Quote</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-navy">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy text-white">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#services" class="block hover:text-alexander-red transition">Services</a>
+                <a href="#how-it-works" class="block hover:text-alexander-red transition">How It Works</a>
+                <a href="#industries" class="block hover:text-alexander-red transition">Industries</a>
+                <a href="#about" class="block hover:text-alexander-red transition">About</a>
+                <a href="#quote" class="block bg-alexander-red text-white px-6 py-3 rounded-full text-center hover:bg-red-700 transition">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white py-16 md:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <!-- Left Content -->
+                <div class="max-w-xl order-first">
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-navy mb-8 leading-tight">Los Angeles Commercial Warehousing, Cross-Dock & FF&E Receiving</h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">Secure pallet storage and general commercial warehousing, cross-dock services, FF&E receiving, and final-mile delivery for commercial projects across Greater Los Angeles.</p>
+
+                    <ul class="space-y-4 mb-12 text-lg text-gray-700">
+                        <li class="flex items-start">
+                            <span class="mr-3">•</span>
+                            <span>Short- and long-term pallet storage and general commercial warehousing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">•</span>
+                            <span>Cross-dock & transloading</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3">•</span>
+                            <span>FF&E receiving, inspection & installation</span>
+                        </li>
+                    </ul>
+
+                    <div>
+                        <a href="#quote" class="inline-block bg-alexander-red text-white px-10 py-5 text-xl font-bold hover:bg-red-700 transition">Get a Warehousing Quote</a>
+                    </div>
+                </div>
+
+                <!-- Right Video -->
+                <div class="order-last">
+                    <div class="bg-gray-100 rounded-lg overflow-hidden aspect-[4/3]">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="AMSvideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Step Quote Form -->
+    <section id="quote" class="bg-gray-50 py-16">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-10">
+                <!-- Progress Indicator -->
+                <div class="mb-8">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-semibold text-gray-600" id="step-label">Step 1 of 4</span>
+                        <span class="text-sm font-semibold text-gray-600" id="step-percent">25%</span>
+                    </div>
+                    <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-alexander-red transition-all duration-300" style="width: 25%"></div>
+                    </div>
+                </div>
+
+                <form id="quote-form">
+                    <!-- Step 1: Project Type -->
+                    <div class="step active" data-step="1">
+                        <h2 class="text-2xl md:text-3xl font-bold text-navy mb-6">Tell us what you need.</h2>
+                        <p class="text-gray-600 mb-4">Select all that apply:</p>
+
+                        <div class="space-y-3 mb-6">
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-alexander-red transition">
+                                <input type="checkbox" name="project-type" value="pallet-storage" class="mr-3 w-5 h-5 text-alexander-red">
+                                <span class="text-gray-800">Pallet storage / warehousing</span>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-alexander-red transition">
+                                <input type="checkbox" name="project-type" value="cross-dock" class="mr-3 w-5 h-5 text-alexander-red">
+                                <span class="text-gray-800">Cross-dock / transloading</span>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-alexander-red transition">
+                                <input type="checkbox" name="project-type" value="ffe-receiving" class="mr-3 w-5 h-5 text-alexander-red">
+                                <span class="text-gray-800">FF&E receiving & installation</span>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-alexander-red transition">
+                                <input type="checkbox" name="project-type" value="final-mile" class="mr-3 w-5 h-5 text-alexander-red">
+                                <span class="text-gray-800">Final-mile delivery & installation</span>
+                            </label>
+                            <label class="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-alexander-red transition">
+                                <input type="checkbox" name="project-type" value="other" class="mr-3 w-5 h-5 text-alexander-red">
+                                <span class="text-gray-800">Other commercial project</span>
+                            </label>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Briefly describe your project (optional)</label>
+                            <textarea name="project-description" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="Tell us more about your needs..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Storage Dates & Logistics -->
+                    <div class="step" data-step="2">
+                        <h2 class="text-2xl md:text-3xl font-bold text-navy mb-6">Storage Dates & Logistics</h2>
+
+                        <div class="space-y-5 mb-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Storage start date</label>
+                                <input type="date" name="storage-start-date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Length of time in storage</label>
+                                <select name="storage-length" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red">
+                                    <option value="">Select duration...</option>
+                                    <option value="less-than-30">Less than 30 days</option>
+                                    <option value="1-3-months">1–3 months</option>
+                                    <option value="3-6-months">3–6 months</option>
+                                    <option value="6-12-months">6–12 months</option>
+                                    <option value="12-plus-months">12+ months</option>
+                                    <option value="not-sure">Not sure yet</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Do you need us to pick up the items and transport them to our LA warehouse?</label>
+                                <div class="flex gap-6">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="radio" name="need-pickup" value="yes" class="mr-2 w-5 h-5 text-alexander-red" id="pickup-yes">
+                                        <span class="text-gray-800">Yes</span>
+                                    </label>
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="radio" name="need-pickup" value="no" class="mr-2 w-5 h-5 text-alexander-red" id="pickup-no">
+                                        <span class="text-gray-800">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="pickup-location-field" style="display: none;">
+                                <label class="block text-gray-700 mb-2 font-medium">Pickup location (City or ZIP)</label>
+                                <input type="text" name="pickup-location" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="e.g., Downtown LA or 90012">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Do you need us to deliver your product out of storage?</label>
+                                <div class="flex gap-6">
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="radio" name="need-delivery" value="yes" class="mr-2 w-5 h-5 text-alexander-red" id="delivery-yes">
+                                        <span class="text-gray-800">Yes</span>
+                                    </label>
+                                    <label class="flex items-center cursor-pointer">
+                                        <input type="radio" name="need-delivery" value="no" class="mr-2 w-5 h-5 text-alexander-red" id="delivery-no">
+                                        <span class="text-gray-800">No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div id="delivery-location-field" style="display: none;">
+                                <label class="block text-gray-700 mb-2 font-medium">Delivery / job site location (City or ZIP)</label>
+                                <input type="text" name="delivery-location" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="e.g., Irvine or 92618">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Volume -->
+                    <div class="step" data-step="3">
+                        <h2 class="text-2xl md:text-3xl font-bold text-navy mb-6">How much product are we handling?</h2>
+
+                        <div class="space-y-5 mb-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Estimated pallet count or total hundredweight (per 100 lb / CWT)</label>
+                                <input type="text" name="volume" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="e.g., 50 pallets or 200 CWT">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Contact Info -->
+                    <div class="step" data-step="4">
+                        <h2 class="text-2xl md:text-3xl font-bold text-navy mb-6">Where should we send your quote?</h2>
+
+                        <div class="space-y-5 mb-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Name *</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="Your full name">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Company</label>
+                                <input type="text" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="Your company name">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Email *</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="you@example.com">
+                            </div>
+
+                            <div>
+                                <label class="block text-gray-700 mb-2 font-medium">Phone *</label>
+                                <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-alexander-red" placeholder="(555) 123-4567">
+                            </div>
+
+                            <div>
+                                <label class="flex items-start cursor-pointer">
+                                    <input type="checkbox" name="consent" required class="mr-3 mt-1 w-5 h-5 text-alexander-red">
+                                    <span class="text-sm text-gray-700">I agree to be contacted by Alexander's about this project and accept the <a href="#" id="terms-link" class="text-alexander-red underline">Terms & Conditions</a> and <a href="#" id="privacy-link" class="text-alexander-red underline">Privacy Policy</a>.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between pt-6 border-t" id="nav-buttons">
+                        <button type="button" id="back-btn" class="px-6 py-3 text-navy border-2 border-navy rounded-full hover:bg-navy hover:text-white transition font-semibold" style="display: none;">Back</button>
+                        <button type="button" id="next-btn" class="ml-auto px-8 py-3 bg-alexander-red text-white rounded-full hover:bg-red-700 transition font-semibold">Next</button>
+                        <button type="submit" id="submit-btn" class="ml-auto px-8 py-3 bg-alexander-red text-white rounded-full hover:bg-red-700 transition font-semibold w-full md:w-auto" style="display: none;">Get My Quote</button>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="success-message" class="hidden text-center py-12">
+                    <svg class="w-20 h-20 text-alexander-red mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="text-2xl md:text-3xl font-bold text-navy mb-4">Thank You!</h3>
+                    <p class="text-lg text-gray-700">Our LA logistics team will review your project and follow up shortly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why LA Companies Use Alexander's -->
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">Why Los Angeles Companies Use Alexander's for Warehousing & Cross-Dock</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Secure, Professionally Staffed Warehouse</h3>
+                    <p class="text-gray-700">Extensive warehouse space and decades of experience in commercial logistics ensure your products are safe and secure.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Project-Ready Receiving and Reporting</h3>
+                    <p class="text-gray-700">Pallet receiving, inspection, photo documentation, labeling, and detailed inventory management for complete project control.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Cross-Dock & Final-Mile Under One Roof</h3>
+                    <p class="text-gray-700">Unload, stage, and deliver to job sites across Greater LA with seamless coordination and no handoffs.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Trusted National Brand</h3>
+                    <p class="text-gray-700">Decades in business serving corporate and government clients as a trusted agent of Atlas Van Lines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">Commercial Warehousing & Logistics Services</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="border-l-4 border-alexander-red pl-6">
+                    <h3 class="text-2xl font-bold text-navy mb-3">Pallet Storage & General Commercial Warehousing</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Palletized and non-palletized storage for all types of commercial products</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Real-time inventory tracking and detailed reporting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Secure, climate-controlled facilities with 24/7 monitoring</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="border-l-4 border-alexander-red pl-6">
+                    <h3 class="text-2xl font-bold text-navy mb-3">Cross-Dock & Transloading</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Fast turnaround for time-sensitive deliveries</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Reduce storage costs by consolidating shipments efficiently</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Coordinate multiple vendors into single job-site deliveries</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="border-l-4 border-alexander-red pl-6">
+                    <h3 class="text-2xl font-bold text-navy mb-3">FF&E Receiving, Storage & Installation</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Accept shipments from multiple furniture and equipment vendors</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Inspect, photograph, and document condition upon arrival</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Professional installation and placement services on-site</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="border-l-4 border-alexander-red pl-6">
+                    <h3 class="text-2xl font-bold text-navy mb-3">Final-Mile Delivery & Job-Site Coordination</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>White-glove delivery to exact room or floor location</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Coordinate with general contractors and project managers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-alexander-red mr-2">•</span>
+                            <span>Protect your reputation with reliable, on-time execution</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">How Our Process Works</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-10">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-alexander-red text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">1</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">Share Your Project Details</h3>
+                    <p class="text-gray-700">Fill out the quote form with your project type, locations, timing, and volume needs.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-alexander-red text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">2</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">We Design a Warehousing & Delivery Plan</h3>
+                    <p class="text-gray-700">Our team reviews your volume, timing, and service requirements to create a custom solution.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-alexander-red text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-6">3</div>
+                    <h3 class="text-xl font-bold text-navy mb-3">We Receive, Store & Deliver</h3>
+                    <p class="text-gray-700">Alexander's handles receiving, storage, cross-dock, and installation – all under one roof.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#quote" class="inline-block bg-alexander-red text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-red-700 transition">Start Your Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries We Serve -->
+    <section id="industries" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">Who We Work With in Greater Los Angeles</h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Office furniture dealers</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Hotel & hospitality projects</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Retail build-outs</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Medical & lab facilities</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Commercial construction</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">Corporate relocations</div>
+                <div class="bg-gray-100 px-6 py-4 rounded-lg text-center font-semibold text-navy border-2 border-transparent hover:border-alexander-red transition">And many more</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Area -->
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-8">Serving All of Greater Los Angeles</h2>
+
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg text-gray-700 text-center mb-8">Our commercial warehousing and logistics services cover Los Angeles, Orange County, and the Inland Empire – providing seamless support for projects across Southern California.</p>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Downtown LA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Westside</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>San Fernando Valley</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>South Bay</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Orange County</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-alexander-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Inland Empire</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Trust -->
+    <section id="about" class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-8">A Trusted Name in Moving & Logistics</h2>
+
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg text-gray-700 text-center mb-10">Alexander's provides a full range of moving and logistics services for families, corporate clients, government officials, and the military. With professionally staffed warehouse space across the U.S. and decades of experience, we bring the same reliability and care to every commercial project.</p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-alexander-red mb-2">80+</div>
+                        <div class="text-gray-700 font-semibold">Years of Experience</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-alexander-red mb-2">✓</div>
+                        <div class="text-gray-700 font-semibold">Corporate & Government Projects</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-alexander-red mb-2">★</div>
+                        <div class="text-gray-700 font-semibold">Atlas Van Lines Agent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <!-- Left -->
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Alexander's Mobility Services</h3>
+                    <p class="text-gray-300">Professional commercial warehousing, cross-dock, and logistics services across Greater Los Angeles.</p>
+                </div>
+
+                <!-- Right -->
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#quote" class="hover:text-alexander-red transition">Get a Quote</a></li>
+                        <li><a href="https://alexanders.net" target="_blank" class="hover:text-alexander-red transition">Main Site</a></li>
+                        <li><a href="#" class="hover:text-alexander-red transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; Alexander's Mobility Services – All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Terms & Privacy Policy -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+        const termsLink = document.getElementById('terms-link');
+        const privacyLink = document.getElementById('privacy-link');
+
+        const termsContent = `
+            <h2 class="text-2xl font-bold text-navy mb-4">Terms & Conditions</h2>
+            <p class="text-gray-700 mb-4">By submitting this form, you agree to receive communications from Alexander's Mobility Services regarding your warehousing and logistics inquiry.</p>
+            <p class="text-gray-700 mb-4">All quotes are subject to verification and final pricing may vary based on actual project requirements.</p>
+            <p class="text-gray-700">Alexander's Mobility Services reserves the right to accept or decline any project based on capacity and operational requirements.</p>
+        `;
+
+        const privacyContent = `
+            <h2 class="text-2xl font-bold text-navy mb-4">Privacy Policy</h2>
+            <p class="text-gray-700 mb-4">Alexander's Mobility Services respects your privacy. Information collected through this form will be used solely for the purpose of providing you with a warehousing quote and related services.</p>
+            <p class="text-gray-700 mb-4">We do not sell or share your personal information with third parties except as necessary to fulfill your service request.</p>
+            <p class="text-gray-700">For more information about our privacy practices, please contact us at info@alexanders.net.</p>
+        `;
+
+        termsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalContent.innerHTML = termsContent;
+            modal.classList.remove('hidden');
+        });
+
+        privacyLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalContent.innerHTML = privacyContent;
+            modal.classList.remove('hidden');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // Conditional field display for pickup and delivery
+        const pickupYes = document.getElementById('pickup-yes');
+        const pickupNo = document.getElementById('pickup-no');
+        const pickupLocationField = document.getElementById('pickup-location-field');
+        const deliveryYes = document.getElementById('delivery-yes');
+        const deliveryNo = document.getElementById('delivery-no');
+        const deliveryLocationField = document.getElementById('delivery-location-field');
+
+        pickupYes.addEventListener('change', () => {
+            if (pickupYes.checked) {
+                pickupLocationField.style.display = 'block';
+            }
+        });
+
+        pickupNo.addEventListener('change', () => {
+            if (pickupNo.checked) {
+                pickupLocationField.style.display = 'none';
+            }
+        });
+
+        deliveryYes.addEventListener('change', () => {
+            if (deliveryYes.checked) {
+                deliveryLocationField.style.display = 'block';
+            }
+        });
+
+        deliveryNo.addEventListener('change', () => {
+            if (deliveryNo.checked) {
+                deliveryLocationField.style.display = 'none';
+            }
+        });
+
+        // Multi-step form logic
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        const steps = document.querySelectorAll('.step');
+        const nextBtn = document.getElementById('next-btn');
+        const backBtn = document.getElementById('back-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const form = document.getElementById('quote-form');
+        const navButtons = document.getElementById('nav-buttons');
+        const successMessage = document.getElementById('success-message');
+        const progressBar = document.getElementById('progress-bar');
+        const stepLabel = document.getElementById('step-label');
+        const stepPercent = document.getElementById('step-percent');
+
+        function updateProgress() {
+            const percent = (currentStep / totalSteps) * 100;
+            progressBar.style.width = percent + '%';
+            stepLabel.textContent = `Step ${currentStep} of ${totalSteps}`;
+            stepPercent.textContent = Math.round(percent) + '%';
+        }
+
+        function showStep(step) {
+            steps.forEach((s, index) => {
+                s.classList.remove('active');
+                if (index + 1 === step) {
+                    s.classList.add('active');
+                }
+            });
+
+            // Show/hide navigation buttons
+            if (step === 1) {
+                backBtn.style.display = 'none';
+            } else {
+                backBtn.style.display = 'block';
+            }
+
+            if (step === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+
+            updateProgress();
+        }
+
+        function validateStep(step) {
+            const currentStepEl = document.querySelector(`.step[data-step="${step}"]`);
+            const requiredInputs = currentStepEl.querySelectorAll('input[required], textarea[required]');
+
+            for (let input of requiredInputs) {
+                if (!input.value.trim() && input.type !== 'radio' && input.type !== 'checkbox') {
+                    return false;
+                }
+                if (input.type === 'radio') {
+                    const radioGroup = currentStepEl.querySelectorAll(`input[name="${input.name}"]`);
+                    const checked = Array.from(radioGroup).some(r => r.checked);
+                    if (!checked && input.hasAttribute('required')) {
+                        return false;
+                    }
+                }
+                if (input.type === 'checkbox' && input.hasAttribute('required') && !input.checked) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            // Special validation for Step 1 - at least one checkbox must be selected
+            if (currentStep === 1) {
+                const checkboxes = document.querySelectorAll('.step[data-step="1"] input[name="project-type"]');
+                const atLeastOneChecked = Array.from(checkboxes).some(cb => cb.checked);
+                if (!atLeastOneChecked) {
+                    alert('Please select at least one service.');
+                    return;
+                }
+            }
+
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+                // Scroll to form
+                document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+
+        backBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!validateStep(currentStep)) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Handle multiple checkboxes for project-type
+            const projectTypes = [];
+            document.querySelectorAll('input[name="project-type"]:checked').forEach(cb => {
+                projectTypes.push(cb.value);
+            });
+
+            // Prepare data object for webhook
+            const data = {
+                projectTypes: projectTypes.join(', '),
+                projectDescription: formData.get('project-description') || '',
+                storageStartDate: formData.get('storage-start-date') || '',
+                storageLength: formData.get('storage-length') || '',
+                needPickup: formData.get('need-pickup') || '',
+                pickupLocation: formData.get('pickup-location') || '',
+                needDelivery: formData.get('need-delivery') || '',
+                deliveryLocation: formData.get('delivery-location') || '',
+                volume: formData.get('volume') || '',
+                name: formData.get('name') || '',
+                company: formData.get('company') || '',
+                email: formData.get('email') || '',
+                phone: formData.get('phone') || '',
+                submittedAt: new Date().toISOString()
+            };
+
+            try {
+                // Send to webhook
+                const response = await fetch('https://n8n.alecautomations.com/webhook/5bfefaa0-c200-4ca5-ab35-e5bf6112bfc9', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Hide form, show success message
+                    form.style.display = 'none';
+                    navButtons.style.display = 'none';
+                    document.querySelector('.mb-8').style.display = 'none'; // Hide progress bar
+                    successMessage.classList.remove('hidden');
+
+                    // Scroll to top of quote section to show thank you message
+                    document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    console.log('Form submitted successfully!');
+                } else {
+                    alert('There was an error submitting your form. Please try again or call us at 1-800-722-6286.');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('There was an error submitting your form. Please try again or call us at 1-800-722-6286.');
+            }
+        });
+
+        // Initialize
+        showStep(1);
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
