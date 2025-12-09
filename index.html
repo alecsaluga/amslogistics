@@ -834,16 +834,9 @@
                 });
 
                 if (response.ok) {
-                    // Hide form, show success message
-                    form.style.display = 'none';
-                    navButtons.style.display = 'none';
-                    document.querySelector('.mb-8').style.display = 'none'; // Hide progress bar
-                    successMessage.classList.remove('hidden');
-
-                    // Scroll to top of quote section to show thank you message
-                    document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
                     console.log('Form submitted successfully!');
+                    // Redirect to thank you page
+                    window.location.href = '/thank-you';
                 } else {
                     alert('There was an error submitting your form. Please try again or call us at 1-800-722-6286.');
                 }
